@@ -1,26 +1,369 @@
-/* Réglages globaux */
+/* ═══════════════════════════════════════════════════════
+   PORTFOLIO — LUCIEN SCHMID
+   Registre « document » : fond clair, colonne unique, beaucoup
+   d'air, filets fins, aucune ombre portée. Les couleurs des
+   pastilles viennent des matières que tu travailles.
+   ═══════════════════════════════════════════════════════ */
+
 :root {
-  --texte: #1a1a1a;
-  --accent: #2563eb;
-  --fond: #ffffff;
+  --fond:       #FFFFFF;
+  --fond-doux:  #F7F6F3;   /* encadrés et zones calmes */
+  --texte:      #37352F;   /* noir chaud, jamais du noir pur */
+  --texte-doux: #7C7972;   /* légendes, dates, étiquettes */
+  --trait:      #E8E6E1;   /* filets de séparation */
+  --lien:       #2F6F8F;
+  --braise:     #E8DDD1;   /* fond des encadrés « ma part » */
+  --braise-vif: #B5502A;   /* marque verticale de ces encadrés */
+
+  --largeur:    44rem;
 }
 
 * { box-sizing: border-box; }
 
 body {
   margin: 0 auto;
-  padding: 3rem 1.5rem;
-  max-width: 42rem;           /* largeur de lecture confortable */
-  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
-  font-size: 1.0625rem;       /* ~17px, lisible */
-  line-height: 1.6;
+  padding: 6rem 1.5rem 5rem;
+  max-width: var(--largeur);
+
+  font-family: "Inter", ui-sans-serif, system-ui, sans-serif;
+  font-size: 1.0625rem;
+  line-height: 1.75;
   color: var(--texte);
   background: var(--fond);
+
+  -webkit-font-smoothing: antialiased;
 }
 
-h1 { font-size: 2rem; margin-bottom: 0.25rem; }
-h2 { font-size: 1.25rem; margin-top: 3rem; }
 
-a { color: var(--accent); }
+/* ── PASTILLES DE MATIÈRE ──────────────────────────── */
+/* Petits carrés texturés réutilisés partout : icône de page,
+   titres de réalisation, liste des savoir-faire. */
 
-img { max-width: 100%; height: auto; }  /* évite les débordements sur mobile */
+.pastille {
+  display: inline-block;
+  width: 0.95em;
+  height: 0.95em;
+  flex: none;
+  border-radius: 2px;
+  vertical-align: -0.06em;
+}
+
+.pastille--paille {
+  background:
+    repeating-linear-gradient(-8deg, #C99A3E 0 2px, #E3C179 2px 4px);
+}
+
+.pastille--chaux {
+  background: #EFEDE4;
+  box-shadow: inset 0 0 0 1px #D6D3C6;
+}
+
+.pastille--bois {
+  background:
+    repeating-linear-gradient(90deg, #9E7B52 0 4px, #8A6842 4px 5px);
+}
+
+.pastille--acier {
+  background: linear-gradient(160deg, #B9C2C8 0%, #7C878F 55%, #A3ADB4 100%);
+}
+
+.pastille--fonte { background: #3A3733; }
+
+.pastille--cuivre {
+  background:
+    repeating-linear-gradient(45deg, #C4703A 0 2px, #1A3A2E 2px 6px);
+}
+
+
+/* ── EN-TÊTE ───────────────────────────────────────── */
+
+/* L'icône de page : les six matières en grille 3 × 2 */
+.icone {
+  display: grid;
+  grid-template-columns: repeat(3, 1.35rem);
+  gap: 3px;
+  margin-bottom: 2rem;
+}
+
+.icone .pastille {
+  width: 1.35rem;
+  height: 1.35rem;
+}
+
+.nom {
+  margin: 0;
+  font-family: "Fraunces", Georgia, serif;
+  font-size: clamp(2.5rem, 8vw, 3.75rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+.these {
+  margin: 1.25rem 0 0;
+  max-width: 34rem;
+  font-size: 1.1875rem;
+  color: var(--texte-doux);
+}
+
+
+/* Bandeau de propriétés, façon en-tête de document */
+.proprietes {
+  display: grid;
+  grid-template-columns: 7.5rem 1fr;
+  gap: 0.5rem 1.5rem;
+  margin: 2.5rem 0 0;
+  font-size: 0.9375rem;
+}
+
+.proprietes dt {
+  color: var(--texte-doux);
+  font-size: 0.875rem;
+}
+
+.proprietes dd { margin: 0; }
+
+
+.nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.75rem;
+  margin-top: 2.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--trait);
+  font-size: 0.9375rem;
+}
+
+
+/* ── LIENS ─────────────────────────────────────────── */
+
+a {
+  color: var(--lien);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(47, 111, 143, 0.25);
+  transition: border-color 0.15s ease;
+}
+
+a:hover { border-bottom-color: var(--lien); }
+
+a:focus-visible {
+  outline: 2px solid var(--lien);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+
+/* ── SECTIONS ──────────────────────────────────────── */
+
+.section { margin-top: 5rem; }
+
+.titre-section {
+  margin: 0 0 2.5rem;
+  font-family: "Fraunces", Georgia, serif;
+  font-size: 1.75rem;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+}
+
+
+/* ── RÉALISATIONS ──────────────────────────────────── */
+
+.realisation {
+  margin-bottom: 4rem;
+  padding-bottom: 4rem;
+  border-bottom: 1px solid var(--trait);
+}
+
+.realisation:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.realisation-titre {
+  display: flex;
+  align-items: baseline;
+  gap: 0.7rem;
+  margin: 0;
+  font-family: "Fraunces", Georgia, serif;
+  font-size: 1.375rem;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.realisation-donnees {
+  margin: 0.4rem 0 1.5rem;
+  padding-left: 1.65rem;   /* aligné sous le texte du titre */
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.8125rem;
+  color: var(--texte-doux);
+}
+
+.realisation-texte { margin: 0 0 1.5rem; }
+
+.realisation-liens {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin: 1.5rem 0 0;
+  font-size: 0.9375rem;
+}
+
+
+/* ── ENCADRÉ « MA PART » ───────────────────────────── */
+/* Le seul élément coloré de la page. Il répond à la question
+   que se pose tout lecteur devant un projet collectif. */
+
+.encadre {
+  display: flex;
+  gap: 0.9rem;
+  margin: 0;
+  padding: 1rem 1.25rem;
+  background: var(--braise);
+  border-radius: 3px;
+}
+
+.encadre-marque {
+  flex: none;
+  width: 3px;
+  border-radius: 2px;
+  background: var(--braise-vif);
+}
+
+.encadre p {
+  margin: 0;
+  font-size: 0.9375rem;
+  line-height: 1.65;
+}
+
+
+/* ── VISUELS ───────────────────────────────────────── */
+
+.visuel { margin: 0 0 1.5rem; }
+
+.visuel img {
+  width: 100%;
+  border-radius: 3px;
+  border: 1px solid var(--trait);
+}
+
+/* Pour les rendus sur fond noir, type circuit imprimé */
+.visuel--sombre img {
+  padding: 0.75rem;
+  background: #10161C;
+  border-color: #10161C;
+}
+
+.visuel figcaption {
+  margin-top: 0.6rem;
+  font-size: 0.8125rem;
+  line-height: 1.55;
+  color: var(--texte-doux);
+}
+
+
+/* ── RÔLES ET FORMATION ────────────────────────────── */
+
+.ligne {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.ligne-date {
+  flex: 0 0 7.5rem;
+  margin: 0;
+  padding-top: 0.2rem;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.8125rem;
+  color: var(--texte-doux);
+}
+
+.ligne-corps { flex: 1; }
+
+.ligne-titre { margin: 0; font-weight: 600; }
+
+.ligne-detail {
+  margin: 0.35rem 0 0;
+  color: var(--texte-doux);
+}
+
+
+/* ── SAVOIR-FAIRE ──────────────────────────────────── */
+
+.savoirs {
+  display: grid;
+  grid-template-columns: 11rem 1fr;
+  gap: 0.9rem 2rem;
+  margin: 0;
+  padding: 1.5rem;
+  background: var(--fond-doux);
+  border-radius: 3px;
+}
+
+.savoirs dt {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-size: 0.9375rem;
+  font-weight: 500;
+}
+
+.savoirs dd {
+  margin: 0;
+  font-size: 0.9375rem;
+  color: var(--texte-doux);
+}
+
+.langues {
+  margin: 1.5rem 0 0;
+  font-size: 0.9375rem;
+  color: var(--texte-doux);
+}
+
+
+/* ── CONTACT ET PIED DE PAGE ───────────────────────── */
+
+.contact-texte { margin: 0; max-width: 34rem; }
+
+.contact-liens {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin: 1.5rem 0 0;
+}
+
+.pied {
+  margin-top: 6rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--trait);
+  font-size: 0.8125rem;
+  color: var(--texte-doux);
+}
+
+.pied p { margin: 0; }
+
+
+/* ── MOBILE ────────────────────────────────────────── */
+
+@media (max-width: 600px) {
+  body { padding: 3.5rem 1.25rem 3rem; }
+
+  .proprietes { grid-template-columns: 1fr; gap: 0 0; }
+  .proprietes dt { margin-top: 0.9rem; }
+
+  .ligne { flex-direction: column; gap: 0.25rem; }
+  .ligne-date { flex: none; padding-top: 0; }
+
+  .savoirs { grid-template-columns: 1fr; gap: 0.25rem; padding: 1.25rem; }
+  .savoirs dd { margin-bottom: 1rem; }
+
+  .nav, .realisation-liens, .contact-liens { gap: 1rem 1.25rem; }
+}
+
+
+/* ── ACCESSIBILITÉ ─────────────────────────────────── */
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; }
+}
