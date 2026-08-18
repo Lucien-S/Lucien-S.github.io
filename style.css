@@ -1,0 +1,26 @@
+/* Réglages globaux */
+:root {
+  --texte: #1a1a1a;
+  --accent: #2563eb;
+  --fond: #ffffff;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0 auto;
+  padding: 3rem 1.5rem;
+  max-width: 42rem;           /* largeur de lecture confortable */
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-size: 1.0625rem;       /* ~17px, lisible */
+  line-height: 1.6;
+  color: var(--texte);
+  background: var(--fond);
+}
+
+h1 { font-size: 2rem; margin-bottom: 0.25rem; }
+h2 { font-size: 1.25rem; margin-top: 3rem; }
+
+a { color: var(--accent); }
+
+img { max-width: 100%; height: auto; }  /* évite les débordements sur mobile */
