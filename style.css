@@ -199,6 +199,18 @@ a:focus-visible {
   color: var(--texte-doux);
 }
 
+/* Le rôle ressort du reste de la ligne, comme une étiquette
+   de propriété Notion, plutôt que de se fondre dans le mono gris. */
+.realisation-donnees .role {
+  display: inline-block;
+  padding: 0.05em 0.55em;
+  background: var(--fond-doux);
+  border-radius: 3px;
+  font-family: "Inter", ui-sans-serif, system-ui, sans-serif;
+  font-weight: 500;
+  color: var(--texte);
+}
+
 .realisation-texte { margin: 0 0 1.5rem; }
 
 .realisation-liens {
