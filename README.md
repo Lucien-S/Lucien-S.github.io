@@ -1,6 +1,3 @@
 # Lucien-S.github.io
-Portfolio
 
-
-
-## C'est un début de page portfolio 
+Vous êtes sur la page de mon projet de portfolio. Les fichiers <index.html> et <style.css> structurent le site statique
