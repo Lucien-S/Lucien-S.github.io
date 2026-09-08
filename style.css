@@ -77,6 +77,34 @@ body {
 
 /* ── EN-TÊTE ───────────────────────────────────────── */
 
+.entete-proprietes {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 2.5rem;
+  margin-top: 2.5rem;
+}
+
+.entete-proprietes .proprietes {
+  flex: 1;
+  min-width: 0;
+  margin-top: 0;
+}
+
+.portrait {
+  flex: none;
+  width: 11rem;
+  margin: 0;
+}
+
+.portrait img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+  border: 1px solid var(--trait);
+}
+
 /* L'icône de page : les six matières en grille 3 × 2 */
 .icone {
   display: grid;
@@ -360,6 +388,9 @@ a:focus-visible {
 
 @media (max-width: 600px) {
   body { padding: 3.5rem 1.25rem 3rem; }
+
+  .entete-proprietes { flex-direction: column-reverse; gap: 1.5rem; }
+  .portrait { width: 9rem; }
 
   .proprietes { grid-template-columns: 1fr; gap: 0 0; }
   .proprietes dt { margin-top: 0.9rem; }
